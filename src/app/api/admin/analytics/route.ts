@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DatabaseService } from '@/lib/supabase';
 
+// Force dynamic rendering to avoid static generation issues
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
-    const searchParams = request.nextUrl.searchParams;
-    const timeRange = searchParams.get('timeRange') as '1d' | '7d' | '30d' || '7d';
+    const { searchParams } = new URL(request.url);
+    const timeRange = (searchParams.get('timeRange') as '1d' | '7d' | '30d') || '7d';
     const adminKey = searchParams.get('adminKey');
 
     // Simple admin verification (in production, use proper authentication)

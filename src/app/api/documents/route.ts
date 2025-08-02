@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DatabaseService } from '@/lib/supabase';
 
+// Force dynamic rendering to avoid static generation issues
+export const dynamic = 'force-dynamic';
+
 // GET documents (for RAG system)
 export async function GET(request: NextRequest) {
   try {
-    const searchParams = request.nextUrl.searchParams;
+    const { searchParams } = new URL(request.url);
     const type = searchParams.get('type') || undefined;
     const department = searchParams.get('department') || undefined;
     const access_level = searchParams.get('access_level') || undefined;
