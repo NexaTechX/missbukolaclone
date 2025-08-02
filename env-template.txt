@@ -1,0 +1,12 @@
+# Copy this content to your .env.local file
+
+# Supabase Configuration (✅ Verified - Using Service Role Key)
+NEXT_PUBLIC_SUPABASE_URL=https://sraqayynnrewfhestvaz.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SERVICE_ROLE_KEY_HERE
+SUPABASE_SERVICE_ROLE_KEY=YOUR_SERVICE_ROLE_KEY_HERE
+
+# OpenAI API Key (Required)
+OPENAI_API_KEY=YOUR_OPENAI_API_KEY_HERE
+
+# Make.com Webhook URL
+MAKE_WEBHOOK_URL=https://hook.eu2.make.com/izv2m5hp4p13jvnsin6j0gt5fhbyrdxr 
