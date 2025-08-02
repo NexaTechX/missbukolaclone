@@ -8,7 +8,8 @@ import { Switch } from '@/components/ui/switch';
 import { formatTimestamp, formatTaskPriority } from '@/lib/utils';
 import { EmailPrompt } from '@/components/email-prompt';
 import { RequestModeInterface } from '@/components/request-mode-interface';
-import { Send, User, Bot, CheckCircle, AlertCircle, Clock, Zap } from 'lucide-react';
+import { Send, User, Bot, CheckCircle, AlertCircle, Clock, Zap, Crown, Briefcase } from 'lucide-react';
+import Image from 'next/image';
 import type { AppState, TaskRequest } from '@/types';
 
 interface Message {
@@ -427,11 +428,36 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
   return (
     <div className="flex flex-col h-full bg-gray-50">
       {/* Header */}
-      <div className="executive-gradient text-white p-3 md:p-4 shadow-lg">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="min-w-0">
-            <h1 className="text-lg md:text-xl font-bold truncate">Bukola Lukan AI</h1>
-            <p className="text-blue-100 text-xs md:text-sm truncate">Group Chief Operations Officer - Digital Clone</p>
+      <div className="executive-gradient text-white p-3 md:p-4 shadow-lg relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -mr-16 -mt-16"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full -ml-12 -mb-12"></div>
+        </div>
+        
+        <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            {/* Bukola's Profile Image */}
+            <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+              <Image
+                src="/Bukky.jpeg"
+                alt="Bukola Lukan"
+                width={56}
+                height={56}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+            <div className="min-w-0">
+              <h1 className="text-lg md:text-xl font-bold truncate flex items-center gap-2">
+                Bukola Lukan AI
+                <Crown className="w-4 h-4 md:w-5 md:h-5 text-yellow-300" />
+              </h1>
+              <p className="text-blue-100 text-xs md:text-sm truncate flex items-center gap-1">
+                <Briefcase className="w-3 h-3" />
+                Group Chief Operations Officer - Digital Clone
+              </p>
+            </div>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
             <div className="text-xs md:text-sm">
