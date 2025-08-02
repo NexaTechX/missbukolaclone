@@ -394,36 +394,23 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
               </Card>
             )}
             
-            {/* Sources & Metadata */}
-            {!isUser && (message.sources?.length || message.confidence !== undefined) && (
+            {/* Sources */}
+            {!isUser && message.sources && message.sources.length > 0 && (
               <div className="mr-2 md:mr-4 text-xs text-gray-500 space-y-1 max-w-full overflow-hidden">
-                {message.confidence !== undefined && (
-                  <div className="flex items-center space-x-1">
-                    <span>Confidence:</span>
-                    <span className={`font-medium ${
-                      message.confidence > 0.8 ? 'text-green-600' : 
-                      message.confidence > 0.5 ? 'text-yellow-600' : 'text-red-600'
-                    }`}>
-                      {Math.round(message.confidence * 100)}%
-                    </span>
+                <div className="overflow-x-auto">
+                  <span>Sources: </span>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {message.sources.map((source, index) => (
+                      <span key={index} className={`inline-block px-2 py-1 rounded text-xs whitespace-nowrap ${
+                        source.type === 'web_search' 
+                          ? 'bg-blue-100 text-blue-800' 
+                          : 'bg-gray-100 text-gray-700'
+                      }`}>
+                        {source.title} ({source.type === 'web_search' ? 'online' : source.type})
+                      </span>
+                    ))}
                   </div>
-                )}
-                {message.sources && message.sources.length > 0 && (
-                  <div className="overflow-x-auto">
-                    <span>Sources: </span>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {message.sources.map((source, index) => (
-                        <span key={index} className={`inline-block px-2 py-1 rounded text-xs whitespace-nowrap ${
-                          source.type === 'web_search' 
-                            ? 'bg-blue-100 text-blue-800' 
-                            : 'bg-gray-100 text-gray-700'
-                        }`}>
-                          {source.title} ({source.type === 'web_search' ? 'online' : source.type})
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
             )}
             
@@ -443,7 +430,7 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
       <div className="executive-gradient text-white p-3 md:p-4 shadow-lg">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-lg md:text-xl font-bold truncate">Miss Bukola Lukan AI</h1>
+            <h1 className="text-lg md:text-xl font-bold truncate">Bukola Lukan AI</h1>
             <p className="text-blue-100 text-xs md:text-sm truncate">Group Chief Operations Officer - Digital Clone</p>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
@@ -483,16 +470,16 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
               <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full executive-gradient text-white flex items-center justify-center">
                 <Bot size={16} className="md:w-5 md:h-5" />
               </div>
-              <div className="executive-card mr-2 md:mr-4 px-3 md:px-4 py-2 md:py-3 rounded-lg">
-                <div className="flex items-center space-x-2 text-gray-600 text-sm md:text-base">
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                              <div className="executive-card mr-2 md:mr-4 px-3 md:px-4 py-2 md:py-3 rounded-lg">
+                  <div className="flex items-center space-x-2 text-gray-600 text-sm md:text-base">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                    </div>
+                    <span>Bukola is thinking...</span>
                   </div>
-                  <span>Miss Bukola is thinking...</span>
                 </div>
-              </div>
             </div>
           </div>
         )}
@@ -528,7 +515,7 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Type your message to Miss Bukola..."
+            placeholder="Type your message to Bukola..."
             className="flex-1 min-h-[50px] md:min-h-[60px] max-h-32 resize-none text-sm md:text-base"
             disabled={isLoading}
           />

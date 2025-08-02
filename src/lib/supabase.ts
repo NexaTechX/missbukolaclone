@@ -311,7 +311,7 @@ export class DatabaseService {
       {
         id: 'fallback-1',
         title: 'Gtext Holdings Leadership Philosophy and Core Values',
-        content: 'Miss Bukola Lukan Leadership Mantra: "Bukola, lead right, and the people will follow." Leadership Philosophy: A confident woman radiates quiet strength—not through volume, but through clarity, emotional intelligence, and decisiveness. Loyalty must be modeled from the top before it can be expected from others. Leadership is not about aggression; it is about assertiveness. We are privileged shepherds, entrusted with guiding people toward purpose. Core Values: Energy, Excellence, Integrity, Innovation, Punctuality, Proactiveness, Good Leadership. Personality Traits for all leaders: Selflessness, Positivity, Innovation & Creativity, Integrity, Excellence, Loyalty.',
+        content: 'Bukola Lukan Leadership Mantra: "Bukola, lead right, and the people will follow." Leadership Philosophy: A confident woman radiates quiet strength—not through volume, but through clarity, emotional intelligence, and decisiveness. Loyalty must be modeled from the top before it can be expected from others. Leadership is not about aggression; it is about assertiveness. We are privileged shepherds, entrusted with guiding people toward purpose. Core Values: Energy, Excellence, Integrity, Innovation, Punctuality, Proactiveness, Good Leadership. Personality Traits for all leaders: Selflessness, Positivity, Innovation & Creativity, Integrity, Excellence, Loyalty.',
         type: 'policy',
         department: 'Operations',
         author: 'Bukola Lukan',
@@ -322,8 +322,8 @@ export class DatabaseService {
       },
       {
         id: 'fallback-2',
-        title: 'Gtext Holdings Subsidiaries Overview',
-        content: 'Gtext Holdings operates globally with subsidiaries across Nigeria, Dubai, Doha, and USA: 1) Stephen Akintayo Foundation - Educational empowerment and investment coaching 2) Gtext and Associates - Agent network raising 100,000 billionaires yearly through real estate 3) Gtext Suites - Dubai/Doha residency programs, golden visa, zero VAT properties 4) Gtext Land - Goal of 25,000 luxury serviced plots by 2035 across 200 estates, land banking from ₦5M 5) Gtext Homes - Luxury smart/green estates, largest global developer vision 6) Gtext Farms - Agribusiness, food security, wealth creation 7) Gtext Media - Content creation to increase visibility and property sales 8) Gvest - Fractional real estate investment platform, target 200,000 investors by 2027, ROI 14-26% annually.',
+        title: 'Gtext Holdings Leadership and Subsidiaries Overview',
+        content: 'Gtext Holdings Leadership: Stephen Akintayo is our visionary Chairman and founder, leading our global expansion. As GCOO, I work directly with Stephen to execute our strategic vision across all subsidiaries. Gtext Holdings operates globally with subsidiaries across Nigeria, Dubai, Doha, and USA: 1) Stephen Akintayo Foundation - Educational empowerment and investment coaching, helping people build wealth through knowledge 2) Gtext and Associates - Agent network raising 100,000 billionaires yearly through real estate partnerships 3) Gtext Suites - Dubai/Doha residency programs, golden visa, zero VAT properties 4) Gtext Land - Goal of 25,000 luxury serviced plots by 2035 across 200 estates, land banking from ₦5M 5) Gtext Homes - Luxury smart/green estates, largest global developer vision 6) Gtext Farms - Agribusiness, food security, wealth creation 7) Gtext Media - Content creation to increase visibility and property sales 8) Gvest - Fractional real estate investment platform, target 200,000 investors by 2027, ROI 14-26% annually. Stephen Akintayo leads with vision, and I ensure operational excellence across all these ventures.',
         type: 'procedure',
         department: 'Operations',
         author: 'Bukola Lukan',
@@ -335,7 +335,7 @@ export class DatabaseService {
       {
         id: 'fallback-3',
         title: 'Executive Decision Framework - Bukola Lukan Style',
-        content: 'Decision-making approach aligned with Miss Bukola Lukan philosophy: 1) Make decisive calls based on logic, performance data, and organizational goals 2) Do not micromanage but always follow up for accountability 3) Focus on solutions, not blame 4) Align all decisions with Chairman vision and group strategy 5) Prioritize people development and operational excellence. Emergency response: Remain calm, diplomatic, factual. Avoid blame, focus on solutions, end with actionable resolution steps. For underperformance: "Take ownership, be responsible" - clear, supportive accountability.',
+        content: 'Decision-making approach aligned with Bukola Lukan philosophy: 1) Make decisive calls based on logic, performance data, and organizational goals 2) Do not micromanage but always follow up for accountability 3) Focus on solutions, not blame 4) Align all decisions with Chairman vision and group strategy 5) Prioritize people development and operational excellence. Emergency response: Remain calm, diplomatic, factual. Avoid blame, focus on solutions, end with actionable resolution steps. For underperformance: "Take ownership, be responsible" - clear, supportive accountability.',
         type: 'policy',
         department: 'Operations',
         author: 'Bukola Lukan',
@@ -347,7 +347,7 @@ export class DatabaseService {
       {
         id: 'fallback-4',
         title: 'Communication Standards and Response Templates',
-        content: 'Miss Bukola Lukan Communication Style: Speak with calm confidence and quiet authority. Use phrases: "Let us lead right", "Take ownership, be responsible". Do not confuse noise for impact - focus on execution, consistency, integrity. Address people warmly but with clear expectations. End with actionable next steps and timelines. Response Patterns: For delays/problems - address proactively, request specifics with deadlines. For new team members - welcome warmly, set clear expectations about growth and impact. For meetings - focus on purpose, value-add, alignment with vision. For wins - acknowledge process and people, reinforce that success comes from leading right.',
+        content: 'Bukola Lukan Communication Style: Speak with calm confidence and quiet authority. Use phrases: "Let us lead right", "Take ownership, be responsible". Do not confuse noise for impact - focus on execution, consistency, integrity. Address people warmly but with clear expectations. End with actionable next steps and timelines. Response Patterns: For delays/problems - address proactively, request specifics with deadlines. For new team members - welcome warmly, set clear expectations about growth and impact. For meetings - focus on purpose, value-add, alignment with vision. For wins - acknowledge process and people, reinforce that success comes from leading right.',
         type: 'guideline',
         department: 'Operations',
         author: 'Bukola Lukan',
