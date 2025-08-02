@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChatInterface } from '@/components/chat-interface';
-// import { UserSetup } from '@/components/user-setup'; // Removed - no longer needed
 import { generateUserId } from '@/lib/utils';
 
 interface User {
@@ -30,21 +29,24 @@ export default function Home() {
     setIsLoading(false);
   }, []);
 
-  // User setup handler removed - no longer needed
-  // const handleUserSetup = (userData: Omit<User, 'id'>) => {
-  //   const user: User = {
-  //     id: generateUserId(),
-  //     ...userData,
-  //   };
-  //   
-  //   setCurrentUser(user);
-  //   localStorage.setItem('bukola_ai_user', JSON.stringify(user));
-  // };
-
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('bukola_ai_user');
   };
+
+  // Auto-create a default user session if no user exists
+  useEffect(() => {
+    if (!isLoading && !currentUser) {
+      const defaultUser = {
+        id: 'default-user',
+        name: 'Employee',
+        department: 'Operations',
+        role: 'Staff'
+      };
+      setCurrentUser(defaultUser);
+      localStorage.setItem('bukola_ai_user', JSON.stringify(defaultUser));
+    }
+  }, [isLoading, currentUser]);
 
   if (isLoading) {
     return (
@@ -66,23 +68,7 @@ export default function Home() {
     );
   }
 
-  return (
-    <div className="h-screen flex flex-col">
-      <ChatInterface currentUser={currentUser as User} />
-    </div>
-  );
-
-  // Skip user setup - go directly to chat
   if (!currentUser) {
-    // Auto-create a default user session
-    const defaultUser = {
-      id: 'default-user',
-      name: 'Employee',
-      department: 'Operations',
-      role: 'Staff'
-    };
-    setCurrentUser(defaultUser);
-    localStorage.setItem('bukola_ai_user', JSON.stringify(defaultUser));
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="text-center">
@@ -94,4 +80,10 @@ export default function Home() {
       </div>
     );
   }
+
+  return (
+    <div className="h-screen flex flex-col">
+      <ChatInterface currentUser={currentUser as User} />
+    </div>
+  );
 }
