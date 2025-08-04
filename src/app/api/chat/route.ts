@@ -111,9 +111,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Log conversation to database (only if Supabase is configured)
+    console.log('Supabase configured:', validateSupabaseConfig());
+    console.log('Attempting to log conversation for user:', userId);
+    
     if (validateSupabaseConfig()) {
       try {
-        await DatabaseService.logConversation({
+        const logResult = await DatabaseService.logConversation({
           user_id: userId,
           user_message: message,
           ai_response: aiResponse.message,
@@ -122,10 +125,13 @@ export async function POST(request: NextRequest) {
           webhook_sent: !!webhookResponse?.success,
           webhook_response: webhookResponse || null,
         });
+        console.log('Conversation logged successfully:', logResult?.id);
       } catch (error) {
         console.error('Error logging conversation:', error);
         // Continue processing even if logging fails
       }
+    } else {
+      console.warn('Supabase not configured - skipping conversation logging');
     }
 
     // Prepare response

@@ -38,10 +38,10 @@ export default function Home() {
   useEffect(() => {
     if (!isLoading && !currentUser) {
       const defaultUser = {
-        id: 'default-user',
-        name: 'Employee',
+        id: 'emp001', // Use existing user from database
+        name: 'John Doe',
         department: 'Operations',
-        role: 'Staff'
+        role: 'Manager'
       };
       setCurrentUser(defaultUser);
       localStorage.setItem('bukola_ai_user', JSON.stringify(defaultUser));
