@@ -37,6 +37,9 @@ export default function Home() {
   // Auto-create a default user session if no user exists
   useEffect(() => {
     if (!isLoading && !currentUser) {
+      // Clear any old localStorage data to force new user creation
+      localStorage.removeItem('bukola_ai_user');
+      
       const defaultUser = {
         id: 'emp001', // Use existing user from database
         name: 'John Doe',
