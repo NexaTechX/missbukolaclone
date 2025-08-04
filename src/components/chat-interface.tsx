@@ -8,9 +8,11 @@ import { Switch } from '@/components/ui/switch';
 import { formatTimestamp, formatTaskPriority } from '@/lib/utils';
 import { EmailPrompt } from '@/components/email-prompt';
 import { RequestModeInterface } from '@/components/request-mode-interface';
-import { Send, User, Bot, CheckCircle, AlertCircle, Clock, Zap, Crown, Briefcase } from 'lucide-react';
+import { Send, User, Bot, CheckCircle, AlertCircle, Clock, Zap, Crown, Briefcase, Upload, History } from 'lucide-react';
 import Image from 'next/image';
 import type { AppState, TaskRequest } from '@/types';
+import { DocumentUpload } from '@/components/document-upload';
+import { ConversationHistory } from '@/components/conversation-history';
 
 interface Message {
   id: string;
@@ -52,6 +54,8 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
     originalMessage: string;
   } | null>(null);
   const [showRequestModeInterface, setShowRequestModeInterface] = useState(false);
+  const [showDocumentUpload, setShowDocumentUpload] = useState(false);
+  const [showConversationHistory, setShowConversationHistory] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -464,18 +468,43 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
               <div className="font-medium truncate">{currentUser.name}</div>
               <div className="text-blue-100 truncate">{currentUser.department} - {currentUser.role}</div>
             </div>
-            <div className="flex items-center justify-between sm:justify-start gap-2">
-              <span className="text-xs md:text-sm whitespace-nowrap">Request Mode</span>
-              <Switch
-                checked={requestMode}
-                onCheckedChange={(checked) => {
-                  setRequestMode(checked);
-                  if (checked) {
-                    setShowRequestModeInterface(true);
-                  }
-                }}
-                className="data-[state=checked]:bg-blue-300"
-              />
+            <div className="flex items-center gap-2">
+              {/* Document Upload Button */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowDocumentUpload(true)}
+                className="text-white hover:bg-white/20"
+                title="Upload Document"
+              >
+                <Upload className="w-4 h-4" />
+              </Button>
+              
+              {/* Conversation History Button */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowConversationHistory(true)}
+                className="text-white hover:bg-white/20"
+                title="View History"
+              >
+                <History className="w-4 h-4" />
+              </Button>
+              
+              {/* Request Mode Switch */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs md:text-sm whitespace-nowrap">Request Mode</span>
+                <Switch
+                  checked={requestMode}
+                  onCheckedChange={(checked) => {
+                    setRequestMode(checked);
+                    if (checked) {
+                      setShowRequestModeInterface(true);
+                    }
+                  }}
+                  className="data-[state=checked]:bg-blue-300"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -532,6 +561,26 @@ export function ChatInterface({ currentUser }: ChatInterfaceProps) {
 
         <div ref={messagesEndRef} />
       </div>
+
+      {/* Document Upload Modal */}
+      {showDocumentUpload && (
+        <DocumentUpload
+          currentUser={currentUser}
+          onUploadSuccess={() => {
+            // Optionally refresh the chat or show a success message
+            console.log('Document uploaded successfully');
+          }}
+          onClose={() => setShowDocumentUpload(false)}
+        />
+      )}
+
+      {/* Conversation History Modal */}
+      {showConversationHistory && (
+        <ConversationHistory
+          currentUser={currentUser}
+          onClose={() => setShowConversationHistory(false)}
+        />
+      )}
 
       {/* Input Area */}
       <div className="border-t bg-white p-3 md:p-4">
